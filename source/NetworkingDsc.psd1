@@ -57,6 +57,7 @@
         'NetBIOS',
         'NetConnectionProfile',
         'NetIPInterface',
+        'NetTcpSetting',
         'NetworkTeam',
         'NetworkTeamInterface',
         'ProxySettings',

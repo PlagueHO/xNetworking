@@ -1,0 +1,26 @@
+[ClassVersion("1.0.0.0"), FriendlyName("NetTcpSetting")]
+class DSC_NetTcpSetting : OMI_BaseResource
+{
+    [Key, Description("Specifies the resource is a single instance, the value must be 'Yes'."), ValueMap{"Yes"}, Values{"Yes"}] String IsSingleInstance;
+    [Key, Description("Specifies the name of the custom settings to configure."), ValueMap{"InternetCustom", "DatacenterCustom"}, Values{"InternetCustom", "DatacenterCustom"}] String SettingName;
+    [Write, Description("Specifies a value, in milliseconds, for the TCP retransmission to time out. The acceptable values for this parameter are: increments of 10, from 20 ms through 300 ms.")] Uint32 MinRtoMs;
+    [Write, Description("Specifies the initial size of the congestion window. Provide a value to multiply by the maximum segment size (MSS). The acceptable values for this parameter are: even numbers from 2 through 64.")] Uint32 InitialCongestionWindowMss;
+    [Write, Description("Specifies the congestion provider property that TCP uses."), ValueMap{"Default", "CTCP", "DCTCP"}, Values{"Default", "CTCP", "DCTCP"}] String CongestionProvider;
+    [Write, Description("Specifies whether to enable congestion window restart. Congestion window restart can avoid slow start to optimize throughput on low latency networks."), ValueMap{"True", "False"}, Values{"True", "False"}] String CwndRestart;
+    [Write, Description("Specifies the time to wait, in milliseconds, before the computer sends an ACK if the computer receives fewer than delayed acknowledgment frequency of packets.")] Uint32 DelayedAckTimeoutMs;
+    [Write, Description("Specifies the number of acknowledgments (ACKs) received before the computer sends a response.")] Byte DelayedAckFrequency;
+    [Write, Description("Specifies whether to use memory pressure protection. TCP memory pressure protection helps ensure that a computer continues normal operation when low on memory due to denial of service attacks."), ValueMap{"Disabled", "Enabled", "Default"}, Values{"Disabled", "Enabled", "Default"}] String MemoryPressureProtection;
+    [Write, Description("Specifies a TCP auto-tuning level for the host computer. TCP auto-tuning can improve throughput on high throughput, high latency networks."), ValueMap{"Disabled", "HighlyRestricted", "Restricted", "Normal", "Experimental"}, Values{"Disabled", "HighlyRestricted", "Restricted", "Normal", "Experimental"}] String AutoTuningLevelLocal;
+    [Write, Description("Specifies whether to enable ECN capability."), ValueMap{"Disabled", "Enabled"}, Values{"Disabled", "Enabled"}] String EcnCapability;
+    [Write, Description("Specifies whether to enable timestamps. Timestamps facilitate round trip measurement, and can help protect against wrapped sequence numbers on high throughput links."), ValueMap{"Disabled", "Enabled"}, Values{"Disabled", "Enabled"}] String Timestamps;
+    [Write, Description("Specifies the period, in milliseconds, before connect, or SYN, retransmit. The acceptable values for this parameter are: increments of 10, from 300 ms through 3000 ms.")] Uint32 InitialRtoMs;
+    [Write, Description("Specifies whether to enable scaling heuristics."), ValueMap{"Disabled", "Enabled"}, Values{"Disabled", "Enabled"}] String ScalingHeuristics;
+    [Write, Description("Specifies the starting port for the dynamic port range. This parameter sets the starting port to send and receive TCP traffic. The acceptable values for this parameter are: 1 through 65535.")] Uint16 DynamicPortRangeStartPort;
+    [Write, Description("Specifies the number of ports for the dynamic port range that starts from the port that you specify for the DynamicPortRangeStartPort parameter.")] Uint16 DynamicPortRangeNumberOfPorts;
+    [Write, Description("Specifies whether the automatic profile assigns a custom template, either Datacenter Custom or Internet Custom, to a connection."), ValueMap{"True", "False"}, Values{"True", "False"}] String AutomaticUseCustom;
+    [Write, Description("Specifies whether to enable round trip time resiliency for clients that do not support selective acknowledgment."), ValueMap{"Enabled", "Disabled"}, Values{"Enabled", "Disabled"}] String NonSackRttResiliency;
+    [Write, Description("Specifies whether to force window scaling for retransmission."), ValueMap{"Enabled", "Disabled"}, Values{"Enabled", "Disabled"}] String ForceWS;
+    [Write, Description("Specifies the maximum number of times the computer sends SYN packets without receiving a response.")] Byte MaxSynRetransmissions;
+    [Write, Description("Specifies the starting port for the auto-reuse port range, which is a port range used for local ephemeral port selection by outbound TCP connections for which either SO_REUSE_UNICASTPORT has been set on the socket, or for which connect() has been called without calling bind() on the socket.")] Uint16 AutoReusePortRangeStartPort;
+    [Write, Description("Specifies the number of ports for the auto-reuse port range, which is a port range used for local ephemeral port selection by outbound TCP connections for which either SO_REUSE_UNICASTPORT has been set on the socket, or for which connect() has been called without calling bind() on the socket.")] Uint16 AutoReusePortRangeNumberOfPorts;
+};

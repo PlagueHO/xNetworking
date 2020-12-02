@@ -5,6 +5,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- NetTCPSetting
+  - Added new resource for configuring TCP settings - fixes [Issue #443](https://github.com/PowerShell/xNetworking/issues/443).
+
 ## [8.2.0] - 2020-10-16
 
 ### Changed
