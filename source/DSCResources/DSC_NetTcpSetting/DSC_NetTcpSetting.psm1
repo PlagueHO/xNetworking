@@ -262,6 +262,7 @@ function Set-TargetResource
 
     # Get the current Dns Client Global Settings
     $currentNetTcpSetting = Get-NetTcpSetting `
+        -SettingsName $SettingsName `
         -ErrorAction Stop
 
     # Generate a list of parameters that will need to be changed.
@@ -291,7 +292,8 @@ function Set-TargetResource
     {
         # Update any parameters that were identified as different
         $null = Set-NetTcpSetting `
-            @ChangeParameters `
+            -SettingsName $SettingsName `
+            @changeParameters `
             -ErrorAction Stop
 
         Write-Verbose -Message ( @(
@@ -504,6 +506,7 @@ function Test-TargetResource
 
     # Get the current TCP Settings
     $currentNetTcpSetting = Get-NetTcpSetting `
+        -SettingsName $SettingsName `
         -ErrorAction Stop
 
     # Check each parameter
