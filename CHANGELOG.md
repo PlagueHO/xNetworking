@@ -16,6 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Updated wiki documentation showing configuration overlap with
     NetAdapterLso - fixes [Issue #475](https://github.com/dsccommunity/NetworkingDsc/issues/475).
 
+### Added
+
+- NetTCPSetting
+  - Added new resource for configuring TCP settings - fixes [Issue #443](https://github.com/PowerShell/xNetworking/issues/443).
+
 ## [8.2.0] - 2020-10-16
 
 ### Changed
